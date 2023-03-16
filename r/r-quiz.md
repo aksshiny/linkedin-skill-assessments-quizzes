@@ -649,3 +649,122 @@ Results: [1] "GHW BUsh" "Clinton" "Obama"
 - [x] [1]TRUE TRUE FALSE
 - [ ] [1]FALSE FALSE TRUE
 - [ ] [1]NA NA NA
+
+#### Q60. Which option setting can cause difficulty if you want to add to a variable's possible values after initial data structure?
+
+- [ ] options(colnames(x) < - NULL)
+- [x] options(max.print=S)
+- [ ] options(stringsAsFactors=TRUE)
+- [ ] options(continue=" ... ")
+
+The options(stringsAsFactors=TRUE) setting can cause difficulty if you want to add to a variable's possible values after the initial data structure because it converts character vectors to factors by default when creating a data frame or reading data using functions such as read.table().
+
+Factors are useful for categorical data, but they can cause problems if you want to add new levels to a variable. If you try to add a new level to a factor variable using the levels() function, R will give an error message because the factor variable has a fixed set of levels determined by its original values.
+
+To avoid this issue, you can set stringsAsFactors=FALSE when creating the data frame or reading data, or convert the factor variable back to a character vector using the as.character() function before adding new levels.
+
+#### Q61. Why does sum(!is.na(pizza$week)) return the number of row swith valid, non-NA valuE
+
+- [ ] !is.na(pizza$week) returns a vector of TRUE/FALSE values, in which TRUE is treated
+- [x] !is.na(pizza$week) counts the number of non-missing values in the column.
+- [ ] The exclamation point in !is.na (pizza$week) reverses the meaning of the test it
+- [ ] !is.na(pizza$week) counts the number of NA values in the column.
+
+The function is.na() returns a logical vector of the same length as the input vector or column, where TRUE indicates a missing value (NA) and FALSE indicates a non-missing value. The ! operator negates the result of the is.na() function, so !is.na(pizza$week) returns a logical vector where TRUE indicates a non-missing value and FALSE indicates a missing value.
+
+When the sum() function is applied to a logical vector, it treats TRUE as 1 and FALSE as 0. Therefore, sum(!is.na(pizza$week)) counts the number of non-missing values in the week column of the pizza data frame, as it sums the TRUE values (non-missing values) in the logical vector !is.na(pizza$week).
+
+#### Q62. In the image below, the data frame on lines 1 through 4 is named StD-f. StD-f contains no factcline 6 return "character" while the statement on line 7 returns "data.frame"?
+
+1 State Capital Year
+2 OH Columbus 1803
+3 co Denver 1876
+4 CA Sacramento 1850
+5
+6 class(StDf[, 1])
+7 class(StDf[3, ])
+
+- [ ] Each value in the first column is a character va lue, but the values in the third row include b values.
+- [x] By specifying the final row, 3, and no column specified, StDf[3, ] cal ls for the completes
+- [ ] Each va lue in the first row is a character value, but the va lues in the th ird column include d values.
+- [ ] Columns in a data frame are vectors general ly containing a sing le type of data. Rows in ad belong to a structure that has multiple rows: the data frame.
+
+In the code snippet, the StDf data frame has three columns named State, Capital, and Year, and four rows of data. The class(StDf[, 1]) statement on line 6 returns "character" because the first column of StDf contains character values. The StDf[3, ] statement on line 7 specifies the third row of StDf with all columns, which returns a data frame because the output of a data frame is always a data frame.
+
+Option A is incorrect because the values in the third row of StDf are Sacramento, which is a character value, not a b value.
+
+Option C is incorrect because the values in the third column of StDf are 1803, 1876, and 1850, which are numeric values, not d values.
+
+Option D is incorrect because columns in a data frame can contain multiple data types, but each column must have a consistent data type.
+
+#### Q63.How do you get documentation of an insta lled and loaded R package named dplyr and package
+
+- [ ] ? dplyr
+- [ ] Press the F1 key.
+- [x] help(dplyr)
+- [ ] ?? dplyr
+
+The correct option is help(dplyr) which will open up the documentation of the package in the Help tab of the RStudio IDE or in the console.
+
+Option A is also a valid way to get the help documentation of a package in R, but it may not work on some systems or in some situations.
+
+Option B is incorrect because pressing the F1 key does not open the help documentation of an installed and loaded R package. It opens the RStudio IDE help documentation.
+
+Option D is similar to option A and can also be used to get help documentation of an R package, but it is not necessary to use the double question mark when the help() function is available.
+
+#### Q64. Which set of two statements-followed by the cbind () funct ion-results in a dat
+
+- [ ] vl<-list(l,2,3}
+      v2<-list(c( 4,5,6}}
+      vbound<-cbind(vl, v2)
+
+- [x] vl<-c(l,2,3)
+      v2<-list( 4,5,6}
+      vbound<-cbind(vl, v2)
+
+- [ ] vl<-c(l,2,3}
+      v2<-c( 4,5,6}
+      vbound<-cbind(vl,v2}
+
+- [] vl<-c(l,2,3}
+      v2<-data.frame(c( 4,5,6))
+      vbound<-cbind(vl,v2}
+
+ vl<-list(l,2,3}, v2<-list(c(4,5,6)), vbound<-cbind(vl, v2) creates two lists vl and v2, but cbind() cannot combine lists with different lengths into a data frame. The correct way to combine vectors is to use c() instead of list().
+
+ vl<-c(l,2,3), v2<-list(4,5,6), vbound<-cbind(vl, v2) creates a vector vl and a list v2, but cbind() cannot combine a vector and a list into a data frame.
+
+ vl<-c(l,2,3}, v2<-c(4,5,6)}, vbound<-cbind(vl,v2} creates two vectors vl and v2, but cbind() cannot combine vectors with different lengths into a data frame.
+
+ vl<-c(l,2,3), v2<-c(4,5,6), vbound<-cbind(vl, v2) creates two vectors vl and v2 with the same length, and cbind() combines them into a data frame vbound.
+
+Therefore, option 2 is the correct answer.
+
+#### Q65. Review line 1. What does the statement on line 3 return?
+1 mtrx < - matrix(l:6, 3, 2)
+2
+3 mtrx[, -1]
+
+- [x] [1] 4 5 6
+- [ ]      [,2]
+      [1,]  1
+      [2,]  2
+      [3,]  3
+- [ ] 0 [,2]
+      [1,] 4
+      [2,] 5
+      [3,] 6
+- [ ] 0 [,1]
+      [1,] 4
+      [2,] 5
+      [3,] 6 
+
+      The statement on line 3, mtrx[, -1], returns a matrix that contains all rows of mtrx but omits the first column of mtrx.
+
+Option 2 and Option 4 are incorrect as they show a matrix with a single column or a single row, respectively.
+
+Option 3 is incorrect because it shows a matrix with "0" as the first element, which is not correct.
+
+Therefore, the correct answer is:
+
+ [1] 4 5 6
